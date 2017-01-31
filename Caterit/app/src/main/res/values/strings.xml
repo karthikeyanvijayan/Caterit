@@ -6,7 +6,14 @@
 
 
     <string name="pref_customer">Customer</string>
+    <string name="title_activity_home">Caterit</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_menu_choice">Menu</string>
+    <string name="action_cart">Cart</string>
 
 
 </resources>

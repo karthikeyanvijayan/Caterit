@@ -1,6 +1,7 @@
 package karthik.com.caterit.Fragments;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 
 import com.google.gson.Gson;
 
+import karthik.com.caterit.Activities.HomeActivity;
 import karthik.com.caterit.Models.Customer;
 import karthik.com.caterit.R;
 
@@ -68,6 +70,9 @@ public class SignupFragment extends Fragment {
                 String customerInfoString = mPrefs.getString(getString(R.string.pref_customer), "");
                 Customer savedCustomer = gson.fromJson(customerInfoString, Customer.class);
                 Log.d("customer", savedCustomer.toString());
+
+                Intent home = new Intent(getActivity(), HomeActivity.class);
+                startActivity(home);
 
             }
         });

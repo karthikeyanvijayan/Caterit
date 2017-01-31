@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_cart"
+        android:orderInCategory="100"
+        android:title="@string/action_cart"
+        android:icon="@drawable/ic_shopping_cart"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_menu"
+        android:orderInCategory="100"
+        android:title="@string/action_menu_choice"
+        android:icon="@drawable/ic_dashboard"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="always" />
+
+
+
 </menu>
