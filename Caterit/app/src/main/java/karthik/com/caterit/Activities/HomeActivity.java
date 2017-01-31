@@ -32,8 +32,7 @@ public class HomeActivity extends AppCompatActivity
 
 
        // getSupportActionBar().setIcon(R.drawable.ic_menu);
-
-
+        // Drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(this,
                 drawer,
@@ -51,15 +50,16 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        // Tabs
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabMenu);
         tabLayout.addTab(tabLayout.newTab().setText("MAIN DISHES"));
         tabLayout.addTab(tabLayout.newTab().setText("DESSERTS"));
         tabLayout.addTab(tabLayout.newTab().setText("DRINKS"));
-        //    tabLayout.addTab(tabLayout.newTab().setText("SIDERS"));
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
+        // Pager
         final ViewPager menuPager = (ViewPager) findViewById(R.id.pagerHome);
 
         MenuCategoryPagerAdapter adapter = new MenuCategoryPagerAdapter(getSupportFragmentManager());
