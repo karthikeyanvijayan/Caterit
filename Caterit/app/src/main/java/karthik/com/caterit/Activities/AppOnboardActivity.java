@@ -30,7 +30,7 @@ public class AppOnboardActivity extends AhoyOnboarderActivity {
                 ic_shopping_cart,
                 R.drawable.ic_menu_share
         };
-    
+
         List<AhoyOnboarderCard> pages = new ArrayList<>();
 
         for (int i = 0; i < onboardTitles.length; i++) {

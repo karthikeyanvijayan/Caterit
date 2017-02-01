@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_bg2"
+        android:id="@+id/image_lvmenu"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/image_lvmenu"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="Big CheeseBurger"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_15sdp"
+        android:id="@+id/tvMenulvName"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMenulvPrice"
+        android:textColor="@color/colorAccent"
+        android:text="$15.00"
+        android:layout_below="@id/tvMenulvName"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/image_lvmenu"
+        android:layout_marginLeft="10dp"/>
+
+
+    <include layout="@layout/row_quantity"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tvMenulvPrice"
+        android:layout_toEndOf="@+id/image_lvmenu"
+        android:layout_alignStart="@+id/tvMenulvPrice" />
+
+</RelativeLayout>

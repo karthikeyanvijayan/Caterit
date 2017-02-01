@@ -7,6 +7,62 @@
     "coverurl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Ellen's_Stardust.jpg/300px-Ellen's_Stardust.jpg",
     "menus": [
       {
+        "name": "Hamachi",
+        "desc" : "Flash marinated hamachi; rice crispy, gochujang sake vinaigrette",
+        "price": 41.50,
+        "itemurl" : "http://www.seriouseats.com/images/2016/06/20160608-poke-tuna-hamachi-octopus-salmon-hawaii-recipe-11.jpg"
+      },
+      {
+        "name": "Mesclun Salad",
+        "desc" : "Salad of the day's market herbs and vegetables with balsamic-shallot vinaigrette",
+        "price": 19.50,
+        "itemurl" : "https://s-media-cache-ak0.pinimg.com/736x/35/a3/07/35a3076e3efb4823ed499ae7b2d6e7b5.jpg"
+      },
+      {
+        "name": "Tuna",
+        "desc" : "Layers of Thinly Pounded Yellowfin Tuna; Foie Gras and Toasted Baguette, Shaved Chives and Extra Virgin Olive Oil",
+        "price": 12.50,
+        "itemurl" : "http://3.bp.blogspot.com/-RDpHsCNjP8A/UG0alth5VBI/AAAAAAAAWYM/7Wyf7lgVqOA/s1600/DSC_0048.JPG"
+      },
+      {
+        "name": "Boylan'Dark Milk Chocolates Soda",
+        "desc" : "Poached Halibut; Romenesco, Brussel Sprouts Yuzu Scented Sea Urchin Emulsion",
+        "price": 4.50,
+        "itemurl" : "https://2.bp.blogspot.com/-CZkPEGFTEXk/VvJkVwZasoI/AAAAAAAAGFY/Awj74emD-I4GCHcuE9P1Cm6MhCttMiolQ/s1600/boylan%2Bsoda.JPG"
+      },
+      {
+        "name": "Bbq Chicken Wings**",
+        "desc" : "Virgil's Famous Smoked Chicken Wings with Maytag Blue Cheese Dip",
+        "price": 13.95,
+        "itemurl" : "https://s-media-cache-ak0.pinimg.com/originals/27/18/d1/2718d12ee4a2398ff7318a78bfedcf66.jpg"
+      },
+      {
+        "name": "Maryland Crab Cakes",
+        "desc" : "Lump crab cakes served with tangy zucchini and cucumber slaw",
+        "price": 15.95,
+        "itemurl" : "http://myheartbeets.com/wp-content/uploads/2015/08/crab-cake-grain-free.jpg"
+
+      },
+      {
+        "name": "Popcorn Shrimp",
+        "desc" : "Cornmeal crusted rock shrimp served over popcorn with spicy remoulade dipping sauce",
+        "price": 13.95,
+        "itemurl" : "http://cookdiary.net/wp-content/uploads/images/Popcorn-Shrimp.jpg"
+      },
+      {
+        "name": "Boylan's Soda",
+        "desc" : "Cream Soda, Orange, Birch Beer, Black Cherry",
+        "price": 4.50,
+        "itemurl" : "https://2.bp.blogspot.com/-CZkPEGFTEXk/VvJkVwZasoI/AAAAAAAAGFY/Awj74emD-I4GCHcuE9P1Cm6MhCttMiolQ/s1600/boylan%2Bsoda.JPG"
+
+      },
+      {
+        "name": "Bbq Combo Sandwich",
+        "desc" : "Pick two: Barbecued Pulled Chicken, Carolina Pulled Pork, Sliced Texas Beef Brisket or Smoked Turkey on a sesame bun",
+        "price": 14.95,
+        "itemurl" : "https://cravedfw.files.wordpress.com/2011/11/pitmaster.jpg"
+      },
+      {
         "name": "Caesar Salad",
         "desc": "Romaine lettuce tossed in our homemade caesar dressing, topped with garlic croutons and shaved parmesan cheese. Add grilled chicken,* grilled shrimp* or grilled salmon* for a little extra",
         "price": 12,
@@ -35,6 +91,60 @@
         "desc": "Choice of hickory-smoked pulled pork or chicken with chipotle barbecue sauce, cheddar and monterey jack cheese, crispy fried jalapeños and onions, piled high on toasted brioche. Go big (10-oz) for a little extra",
         "price": 7,
         "itemurl" : "https://img.buzzfeed.com/buzzfeed-static/static/2014-06/24/1/campaign_images/webdr09/25-foods-texas-does-better-than-anywhere-else-2-22066-1403586837-0_dblbig.jpg"
+      },
+      {
+        "name": "Honey Mustard Grilled Chicken Sandwich*",
+        "desc" : "Toasted brioche bun with honey mustard, topped with smoked bacon, melted jack cheese, grilled chicken, dijon mayonnaise, iceberg lettuce and a slice of vine-ripened tomato",
+        "price": 9.50,
+        "itemurl" : "http://www.chicagonow.com/stephanie-eats-chicago/files/2013/03/Flatbreads_Vertical_PICK.jpg"
+      },
+      {
+        "name": "Iced Caramel",
+        "desc" : "Baileys irish cream, disaronno amaretto, monin salted caramel, shaken with half & half and topped with whipped cream and caramel sauce",
+        "price": 3.50,
+        "itemurl" : "http://eugeniekitchen.com/wp-content/uploads/2014/06/iced-caramel-macchiato-recipe-f2.jpg"
+      },
+      {
+        "name": "Chocolate Molten Cake",
+        "desc" : "Dense, chocolaty cake with a lava-like center of rich, oozing molten chocolate. Served warm with vanilla ice cream",
+        "price": 2.95,
+        "itemurl" : "http://www.indiansimmer.com/wp-content/uploads/2011/09/5019068081_af85d4ce2f_o.jpg"
+      },
+      {
+        "name": "Fiesta Burger*",
+        "desc" : "Toasted brioche bun layered with roasted jalapeno salsa, melted jack cheese, freshly made guacamole, pico de gallo, crisp lettuce and vine-ripened tomato ",
+        "price": 12.50,
+        "itemurl" : "http://blog.mydala.com/wp-content/uploads/2015/07/27.jpg"
+      },
+      {
+        "name": "Garlic Bread",
+        "desc" : "Topped with melted mozzarella cheese",
+        "price": 2.50,
+        "itemurl" : "http://i.imgur.com/7Li3O66.png"
+      },
+      {
+        "name": "Bruschetta",
+        "desc" : "Toasted Italian bread topped with diced tomatoes, garlic, olive oil and basil",
+        "price": 8,
+        "itemurl" : "http://www.mybakingaddiction.com/wp-content/uploads/images/Garlic-Tomato-Bruschetta2-1-of-1.jpg"
+      },
+      {
+        "name": "Fried Calamari",
+        "desc" : "Fried calamari served with marinara sauce",
+        "price": 12.75,
+        "itemurl" : "https://s-media-cache-ak0.pinimg.com/736x/4d/86/08/4d8608c3d8fc9ac8ed668adfe44ce4f5.jpg"
+      },
+      {
+        "name": "Roasted Veggie Platter",
+        "desc" : "Topped with melted mozzarella cheese",
+        "price": 9.75,
+        "itemurl" : "http://www.millvalleymarket.com/images/featured/deli-catering/grilledvegplatters.jpg"
+      },
+      {
+        "name": "John's Garlic Rolls",
+        "desc" : "Fresh garlic, olive oil and mozzarella cheese wrapped in our homemade dough and served with marinara sauce for dipping",
+        "price": 6.50,
+        "itemurl" : "https://pbs.twimg.com/media/CD73qCLW0AAoWsH.jpg"
       }
     ],
     "location": {
