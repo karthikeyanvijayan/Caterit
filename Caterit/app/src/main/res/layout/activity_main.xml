@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/image_bg" />
+            android:src="@drawable/image_bg3" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -45,7 +45,7 @@
                 android:layout_below="@id/appName"
                 android:text="Fresh Home-made Meals, delivered to you"
                 android:textAlignment="center"
-                android:textColor="#99ffffff"
+                android:textColor="#ffffff"
                 android:textSize="@dimen/_12sdp" />
 
         </RelativeLayout>

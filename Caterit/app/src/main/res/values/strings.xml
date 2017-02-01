@@ -15,5 +15,17 @@
     <string name="action_menu_choice">Menu</string>
     <string name="action_cart">Cart</string>
 
+    <string-array name="onboard_titles">
+        <item>Dining Experience</item>
+        <item>Awesome Ordering</item>
+        <item>Eat ,Enjoy, Share</item>
+    </string-array>
+
+    <string-array name="onboard_desc">
+        <item>Select from of our daily fresh home-made dishes </item>
+        <item>Browse menus,view ratings and place orders,handle payment easily</item>
+        <item>with Caterit you can like,favorite and share menu items. </item>
+    </string-array>
+
 
 </resources>
