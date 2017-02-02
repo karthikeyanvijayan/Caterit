@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Forgot Password?"
+            android:id="@+id/btnForgotPassword"
             android:background="@android:color/transparent"
             android:textColor="@color/colorPrimary"
             android:layout_below="@id/password_text_input_layout"

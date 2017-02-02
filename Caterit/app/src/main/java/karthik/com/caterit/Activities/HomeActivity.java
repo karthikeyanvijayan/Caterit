@@ -123,10 +123,10 @@ public class HomeActivity extends AppCompatActivity
             return true;
         }
 //
-//        //noinspection SimplifiableIfStatement
         if (menuId == R.id.action_menu) {
 
             isGridMenu = !isGridMenu;
+
             if (!isGridMenu) {
                 item.setIcon(R.drawable.ic_dns);
             } else {
