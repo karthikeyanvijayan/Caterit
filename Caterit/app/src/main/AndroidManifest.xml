@@ -16,24 +16,31 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
+
+        </activity>
+        <activity
+            android:name=".Activities.HomeActivity"
+            android:label="@string/title_activity_home">
+
+        </activity>
+
+        <activity
+            android:name=".Activities.AppOnboardActivity"
+            android:label="@string/title_activity_home" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".Activities.HomeActivity"
-            android:label="@string/title_activity_home"></activity>
+            </activity>
 
-        <activity
-            android:name=".Activities.AppOnboardActivity"
-            android:label="@string/title_activity_home"></activity>
+
 
         <activity
             android:name=".Activities.ForgotPasswordActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".Activities.MenuDetailActivity"></activity>
     </application>
 
 </manifest>

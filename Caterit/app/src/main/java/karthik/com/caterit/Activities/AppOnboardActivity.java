@@ -9,7 +9,6 @@ import com.codemybrainsout.onboarder.AhoyOnboarderCard;
 import java.util.ArrayList;
 import java.util.List;
 
-import karthik.com.caterit.MainActivity;
 import karthik.com.caterit.R;
 
 import static karthik.com.caterit.R.drawable.ic_shopping_cart;

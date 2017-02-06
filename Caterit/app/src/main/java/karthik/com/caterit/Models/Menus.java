@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by user on 17/01/2017.
  */
 
-public class Menus implements Serializable  {
+public class Menus implements Serializable {
 
     String name, menu_desc, itemurl;
     Double price;
@@ -41,6 +41,10 @@ public class Menus implements Serializable  {
 
     public void setMenu_desc(String menu_desc) {
         this.menu_desc = menu_desc;
+    }
+
+    public String toPrice() {
+        return "$" + price + "";
     }
 
     @Override

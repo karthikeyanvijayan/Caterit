@@ -23,7 +23,7 @@ public class MenuListFragment extends Fragment {
     MenusAdapter gridAdapter = null;
     MenuListAdapter listAdapter = null;
     RecyclerView menuListRecycleView;
-    Boolean isGridMode = false;
+    Boolean isGridMode = true;
     Restaurant restaurant = null;
     MenuItemAdapter adapter;
 
@@ -46,6 +46,8 @@ public class MenuListFragment extends Fragment {
 
         menuListRecycleView = (RecyclerView) view.findViewById(R.id.menuRecycleView);
         menuListRecycleView.setAdapter(adapter);
+        menuListRecycleView.setHasFixedSize(true);
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         menuListRecycleView.setLayoutManager(layoutManager);

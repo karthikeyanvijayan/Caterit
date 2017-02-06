@@ -5,19 +5,19 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="karthik.com.caterit.MainActivity">
+    tools:context="karthik.com.caterit.Activities.MainActivity">
 
     <RelativeLayout
         android:id="@+id/lyIntro"
         android:layout_width="match_parent"
-        android:layout_height="230dp">
+        android:layout_height="170dp">
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/image_bg3" />
+            android:src="@drawable/image_bg5" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -32,9 +32,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
+                android:layout_marginTop="10dp"
                 android:textAlignment="center"
                 android:layout_marginBottom="10dp"
-                android:layout_centerVertical="true"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/_40sdp" />
 
@@ -56,13 +56,13 @@
             app:tabIndicatorColor="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#00ffffff"
+            android:background="#2000"
             android:minHeight="?attr/actionBarSize"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             app:tabSelectedTextColor="@color/colorPrimary"
             android:layout_marginBottom="1dp"
-            app:tabTextColor="#95ffffff" />
+            app:tabTextColor="#ffffff" />
 
 
     </RelativeLayout>

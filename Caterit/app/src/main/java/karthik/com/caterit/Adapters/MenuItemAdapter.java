@@ -1,6 +1,7 @@
 package karthik.com.caterit.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,12 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
+import karthik.com.caterit.Activities.MenuDetailActivity;
 import karthik.com.caterit.Models.Menus;
 import karthik.com.caterit.Models.Restaurant;
 import karthik.com.caterit.R;
+import karthik.com.caterit.RestaurantManager;
 
 /**
  * Created by user on 01/02/2017.
@@ -102,7 +106,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
 
-    public class GridViewHolder extends RecyclerView.ViewHolder {
+    public class GridViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView itemname, item_price;
         public ImageView imageMenu;
 
@@ -111,10 +115,17 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             itemname = (TextView) view.findViewById(R.id.tvMenuName);
             imageMenu = (ImageView) view.findViewById(R.id.image_menubg);
             item_price = (TextView) view.findViewById(R.id.tvMenuPrice);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition(); // gets item position
+            getMenuItem(position);
         }
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder {
+    public class ListViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
         public TextView itemname, item_price;
         public ImageView imageMenu;
 
@@ -123,6 +134,24 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             itemname = (TextView) view.findViewById(R.id.tvMenulvName);
             imageMenu = (ImageView) view.findViewById(R.id.image_lvmenu);
             item_price = (TextView) view.findViewById(R.id.tvMenulvPrice);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition(); // gets item position
+            getMenuItem(position);
+        }
+    }
+
+    void getMenuItem(int position) {
+        if (position != RecyclerView.NO_POSITION) {
+            Menus menu_item = menus.get(position);
+            Intent detail = new Intent(context, MenuDetailActivity.class);
+            String menuJson = (new Gson()).toJson(menu_item);
+            detail.putExtra("menu",menuJson);
+            RestaurantManager.Instance().setCurrentSelectedMenu(menu_item);
+            context.startActivity(detail);
         }
     }
 

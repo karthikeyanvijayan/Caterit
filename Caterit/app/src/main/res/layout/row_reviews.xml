@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/tvRvName"
+        android:text="Josh Thomas | Jan 21 2017"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvTitle"
+        android:layout_below="@+id/tvRvName"
+        android:text="Fun and Cool"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_15sdp"
+        android:layout_toStartOf="@+id/rvRatingBar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rvTitle"
+        android:id="@+id/rvDesc"
+        android:textSize="@dimen/_12sdp"
+        android:text="Great singers/actors make eating , and even waiting for the food, a lot of fun. Found the place in 2008 - and it is still active and even better, a great sign!"/>
+
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:id="@+id/rvRatingBar"
+        android:layout_alignBottom="@+id/rvTitle"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

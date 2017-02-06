@@ -3,6 +3,8 @@ package karthik.com.caterit;
 import android.content.Context;
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,10 +12,13 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import karthik.com.caterit.Models.Location;
 import karthik.com.caterit.Models.Menus;
 import karthik.com.caterit.Models.Restaurant;
+import karthik.com.caterit.Models.Reviews;
 
 /**
  * Created by user on 17/01/2017.
@@ -24,6 +29,15 @@ public class RestaurantManager {
     private static RestaurantManager instance;
     Context context;
     ArrayList<Restaurant> restaurantsList;
+    Menus currentSelectedMenu = null;
+
+    public Menus getCurrentSelectedMenu() {
+        return currentSelectedMenu;
+    }
+
+    public void setCurrentSelectedMenu(Menus currentSelectedMenu) {
+        this.currentSelectedMenu = currentSelectedMenu;
+    }
 
     public static RestaurantManager Instance() {
         //if no instance is initialized yet then create new instance
@@ -36,13 +50,27 @@ public class RestaurantManager {
 
     public Restaurant getRestaurant(Context mcontext) {
         ArrayList<Restaurant> locations = getAllRestaurants(mcontext);
-        return  locations.get(0);
+        return locations.get(0);
+    }
+
+    public ArrayList<Reviews> getAllReviews(Context mcontext) {
+        String stringReviews = this.loadJSONFromAsset("reviews.json");
+        //  try {
+        Gson gson = new Gson();
+        List<Reviews> reviews = Arrays.asList(gson.fromJson(stringReviews, Reviews[].class));
+          ArrayList<Reviews> reviewsList = new ArrayList<>();
+        for(Reviews reviewitem:reviews) {
+            Log.d("review",reviewitem.toString());
+            reviewsList.add(reviewitem);
+        }
+        return reviewsList;
+
     }
 
     public ArrayList<Restaurant> getAllRestaurants(Context mcontext) {
 
         this.context = mcontext;
-        String stringRestaurants = this.loadJSONFromAsset();
+        String stringRestaurants = this.loadJSONFromAsset("restaurant.json");
         restaurantsList = new ArrayList<>();
 
         try {
@@ -61,8 +89,8 @@ public class RestaurantManager {
                 JSONObject locationObject = restaurantJson.getJSONObject("location");
                 if (locationObject != null) {
                     Location location = new Location();
-                    Double lat =locationObject.getDouble("lat");
-                    Log.d("lat",Double.toString(lat));
+                    Double lat = locationObject.getDouble("lat");
+                    Log.d("lat", Double.toString(lat));
                     location.setLatitude(locationObject.getDouble("lat"));
                     location.setLongitude(locationObject.getDouble("longt"));
                     restaurant.setLocation(location);
@@ -98,12 +126,10 @@ public class RestaurantManager {
     }
 
 
-
-
-    public String loadJSONFromAsset() {
+    public String loadJSONFromAsset(String filename) {
         String json = null;
         try {
-            InputStream is = this.context.getAssets().open("restaurant.json");
+            InputStream is = this.context.getAssets().open(filename);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

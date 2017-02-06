@@ -1,4 +1,4 @@
-package karthik.com.caterit;
+package karthik.com.caterit.Activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import karthik.com.caterit.Adapters.SignupPagerAdapter;
+import karthik.com.caterit.R;
 
 
 public class MainActivity extends AppCompatActivity {
