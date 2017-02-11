@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import karthik.com.caterit.Models.Location;
 import karthik.com.caterit.Models.Menus;
@@ -29,7 +30,9 @@ public class RestaurantManager {
     private static RestaurantManager instance;
     Context context;
     ArrayList<Restaurant> restaurantsList;
+    ArrayList<Menus> orderList = null;
     Menus currentSelectedMenu = null;
+
 
     public Menus getCurrentSelectedMenu() {
         return currentSelectedMenu;
@@ -51,6 +54,20 @@ public class RestaurantManager {
     public Restaurant getRestaurant(Context mcontext) {
         ArrayList<Restaurant> locations = getAllRestaurants(mcontext);
         return locations.get(0);
+    }
+
+    public ArrayList<Menus> getAllOrders(Context mContext) {
+        Restaurant currentRestaurant = getRestaurant(mContext);
+        if (currentRestaurant != null) {
+            ArrayList<Menus> menuList = currentRestaurant.getMenus();
+            for (Menus menuitem : menuList) {
+                Random rand = new Random();
+                int randomno = rand.nextInt(15) + 1;
+                menuitem.setQuantity(randomno);
+            }
+            return menuList;
+        }
+        return null;
     }
 
     public ArrayList<Reviews> getAllReviews(Context mcontext) {

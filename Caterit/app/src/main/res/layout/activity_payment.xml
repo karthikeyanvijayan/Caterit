@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_payment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    tools:context="karthik.com.caterit.Activities.PaymentActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarPayment"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="Cart"
+        app:titleTextColor="@color/white"></android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnPayment"
+        android:layout_below="@+id/toolbarPayment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tvPyTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Total"
+                android:textAlignment="center"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/tvPyAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvPyTotal"
+                android:text="$23.40"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_25sdp" />
+
+            <TextView
+                android:id="@+id/tvPyCartDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvPyAmount"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="CARD DETAILS"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_11sdp" />
+
+            <RelativeLayout
+                android:id="@+id/rlCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvPyCartDetails"
+                android:layout_marginTop="20dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:id="@+id/lyPYName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textfield_height"
+                    android:layout_marginLeft="10dp"
+                    android:weightSum="2">
+
+
+                    <EditText
+                        android:id="@+id/textPYFirstname"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:background="#00000000"
+                        android:hint="First Name" />
+
+                    <EditText
+                        android:id="@+id/textPYLastname"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:background="#00000000"
+                        android:hint="Last Name" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/lyPYName"
+                    android:background="#f2f2f2" />
+
+                <EditText
+                    android:id="@+id/textCartNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textfield_height"
+                    android:layout_below="@id/lyPYName"
+                    android:layout_marginLeft="10dp"
+                    android:maxLines="1"
+                    android:layout_marginTop="2dp"
+                    android:background="#00000000"
+                    android:hint="Card Number"
+                    android:inputType="number" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/textCartNo"
+                    android:background="#f2f2f2" />
+
+                <LinearLayout
+                    android:id="@+id/lyPYCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textfield_height"
+                    android:layout_below="@id/textCartNo"
+                    android:layout_marginLeft="10dp"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/textPYCV"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:hint="CCV"
+                        android:maxLines="1"
+                        android:inputType="number" />
+
+                    <EditText
+                        android:id="@+id/textPYExpiry"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:background="#00000000"
+                        android:hint="Expiry (MMYY)"
+                        android:inputType="number" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvPyAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlCard"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:text="DELIVERY ADDRESS"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_11sdp" />
+
+            <RelativeLayout
+                android:id="@+id/rlAddressPY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvPyAddress"
+                android:layout_marginTop="20dp"
+                android:background="@color/white">
+
+                <EditText
+                    android:id="@+id/textAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textfield_height"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="2dp"
+                    android:maxLines="1"
+                    android:background="#00000000"
+                    android:hint="Address" />
+
+                <LinearLayout
+                    android:id="@+id/lyPYAddrName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textfield_height"
+                    android:layout_below="@+id/textAddress"
+                    android:layout_marginLeft="10dp"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/textCity"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_13sdp"
+                        android:background="#00000000"
+                        android:hint="City" />
+
+                    <EditText
+                        android:id="@+id/textState"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_13sdp"
+                        android:background="#00000000"
+                        android:hint="State" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/lyPYAddrName"
+                    android:background="#f2f2f2" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/textAddress"
+                    android:background="#f2f2f2" />
+
+                <LinearLayout
+                    android:id="@+id/lyPYAddr2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textfield_height"
+                    android:layout_below="@id/lyPYAddrName"
+                    android:layout_marginLeft="10dp"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/textPostal"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_13sdp"
+                        android:hint="Postal Code" />
+
+                    <EditText
+                        android:id="@+id/textCountry"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_13sdp"
+                        android:hint="Country" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent">
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/btnPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPink"
+        android:text="Proceed to Pay"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

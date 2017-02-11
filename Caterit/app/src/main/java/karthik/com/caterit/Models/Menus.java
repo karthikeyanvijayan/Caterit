@@ -10,6 +10,15 @@ public class Menus implements Serializable {
 
     String name, menu_desc, itemurl;
     Double price;
+    Integer quantity = 0;
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
     public String getItemurl() {
         return itemurl;
@@ -45,6 +54,15 @@ public class Menus implements Serializable {
 
     public String toPrice() {
         return "$" + price + "";
+    }
+
+    public String toSubTotal() {
+        Double subtotal = quantity * price;
+        return String.valueOf(subtotal);
+    }
+
+    public String toOrders() {
+        return  name + " " + quantity;
     }
 
     @Override

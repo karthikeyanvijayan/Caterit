@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_checkout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="karthik.com.caterit.Activities.CheckoutActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarPayment"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="Confirmation"
+        app:titleTextColor="@color/white"></android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbarPayment"
+            android:id="@+id/rlPaymentTotal">
+
+
+            <TextView
+                android:id="@+id/tvchkTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Total"
+                android:textAlignment="center"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/tvChkAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvchkTotal"
+                android:text="$23.40"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_25sdp" />
+
+
+
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/rlChkOrder"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:background="@color/white"-->
+                <!--android:layout_below="@+id/tvChkAmount">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:text="YOUR ORDER"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:textColor="@color/colorAccent"-->
+                    <!--android:layout_marginLeft="16dp"/>-->
+
+
+                <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:text="Edit"-->
+                    <!--android:id="@+id/btnEditCheckout"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:textColor="@color/primary_text"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:background="@android:color/transparent"/>-->
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_below="@id/btnEditCheckout"-->
+                    <!--android:background="#f3f3f3" />-->
+
+            <!--</RelativeLayout>-->
+
+            </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlPaymentTotal">
+
+
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

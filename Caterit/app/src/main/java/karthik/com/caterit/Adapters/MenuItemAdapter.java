@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 import karthik.com.caterit.Activities.MenuDetailActivity;
+import karthik.com.caterit.Models.CTQuantityView;
 import karthik.com.caterit.Models.Menus;
 import karthik.com.caterit.Models.Restaurant;
 import karthik.com.caterit.R;
@@ -31,6 +33,8 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     ArrayList<Menus> menus;
     Context context;
     Boolean isGrid = true;
+    Integer currentQuantity = 0;
+
 
     public Boolean getGrid() {
         return isGrid;
@@ -61,6 +65,8 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
+
+
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Menus menu_item = this.menus.get(position);
@@ -70,6 +76,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             if (isGrid == true) {
                 ((GridViewHolder) holder).itemname.setText(menu_item.getName());
                 ((GridViewHolder) holder).item_price.setText(price);
+              //  ((GridViewHolder)holder).quantity.setTag(position,position);
                 // Glide unsplash background image
                 Glide.with(context)
                         .load(menu_item.getItemurl())
@@ -109,13 +116,34 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public class GridViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView itemname, item_price;
         public ImageView imageMenu;
+        CTQuantityView quantity;
 
         public GridViewHolder(View view) {
             super(view);
             itemname = (TextView) view.findViewById(R.id.tvMenuName);
             imageMenu = (ImageView) view.findViewById(R.id.image_menubg);
             item_price = (TextView) view.findViewById(R.id.tvMenuPrice);
+            quantity = (CTQuantityView) view.findViewById(R.id.quantityView);
+
+          //  updateQuantityView();
+
             view.setOnClickListener(this);
+        }
+
+        void updateQuantityValue(String value,TextView textView) {
+            textView.setText(value);
+        }
+
+        public void updateQuantityView() {
+            final TextView tvQuantity = (TextView) quantity.findViewById(R.id.tvAddQuantity);
+            Button btnPlus = (Button)quantity.findViewById(R.id.btnQuantityAdd);
+            btnPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    currentQuantity += 1;
+                    updateQuantityValue(String.valueOf(currentQuantity),tvQuantity);
+                }
+            });
         }
 
         @Override

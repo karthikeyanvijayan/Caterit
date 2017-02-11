@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/image_bg3"
+        android:layout_margin="10dp"
+        android:id="@+id/image_order"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/lvOrderQuantity"
+        android:layout_marginRight="10dp">
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_border"
+            android:text="+"/>
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_border"
+            android:layout_marginTop="5dp"
+            android:text="-"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/image_order"
+        android:layout_toStartOf="@+id/lvOrderQuantity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvOrderMenuName"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/primary_text"
+            android:text="Big Cheeseburger"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvOrderPrice"
+            android:layout_below="@+id/tvOrderMenuName"
+            android:textColor="@color/colorAccent"
+            android:text="$12.68"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvOrderQuantity"
+            android:layout_below="@+id/tvOrderPrice"
+            android:text="X 2"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package karthik.com.caterit.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -9,7 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import karthik.com.caterit.Activities.MyOrdersActivity;
 import karthik.com.caterit.Adapters.MenuItemAdapter;
 import karthik.com.caterit.Adapters.MenuListAdapter;
 import karthik.com.caterit.Adapters.MenusAdapter;
@@ -52,6 +55,16 @@ public class MenuListFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         menuListRecycleView.setLayoutManager(layoutManager);
         menuListRecycleView.setItemAnimator(new DefaultItemAnimator());
+
+
+        Button btnCart = (Button) view.findViewById(R.id.btnAddCart);
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cartIntent = new Intent(getActivity(), MyOrdersActivity.class);
+                startActivity(cartIntent);
+            }
+        });
 
 
         return view;
