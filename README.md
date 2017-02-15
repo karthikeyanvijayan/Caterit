@@ -1,2 +1,2 @@
 # Caterit
-Food Ordering android application
+Sample Android Restaurant Food Ordering application
