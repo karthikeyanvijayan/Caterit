@@ -27,13 +27,15 @@
             android:name=".Activities.ForgotPasswordActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".Activities.MenuDetailActivity" />
-        <activity android:name=".Activities.MyOrdersActivity"></activity>
-        <activity android:name=".Activities.PaymentActivity">
+        <activity android:name=".Activities.MyOrdersActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Activities.PaymentActivity">
+
         </activity>
         <activity android:name=".Activities.CheckoutActivity"></activity>
     </application>

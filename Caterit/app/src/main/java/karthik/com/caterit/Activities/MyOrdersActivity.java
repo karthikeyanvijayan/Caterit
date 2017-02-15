@@ -54,7 +54,7 @@ public class MyOrdersActivity extends AppCompatActivity {
         btnorders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent paymentDetails = new Intent(MyOrdersActivity.this,PaymentActivity.class);
+                Intent paymentDetails = new Intent(MyOrdersActivity.this, CheckoutActivity.class);
                 startActivity(paymentDetails);
             }
         });

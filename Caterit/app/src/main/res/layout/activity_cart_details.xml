@@ -9,7 +9,7 @@
     tools:context="karthik.com.caterit.Activities.PaymentActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarPayment"
+        android:id="@+id/toolbarCartDetails"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -19,8 +19,8 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnPayment"
-        android:layout_below="@+id/toolbarPayment">
+        android:layout_above="@+id/btnProceedtopay"
+        android:layout_below="@+id/toolbarCartDetails">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -78,18 +78,18 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:maxLines="1"
                         android:background="#00000000"
-                        android:hint="First Name" />
+                        android:hint="First Name"
+                        android:maxLines="1" />
 
                     <EditText
                         android:id="@+id/textPYLastname"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:maxLines="1"
                         android:background="#00000000"
-                        android:hint="Last Name" />
+                        android:hint="Last Name"
+                        android:maxLines="1" />
 
                 </LinearLayout>
 
@@ -105,11 +105,11 @@
                     android:layout_height="@dimen/textfield_height"
                     android:layout_below="@id/lyPYName"
                     android:layout_marginLeft="10dp"
-                    android:maxLines="1"
                     android:layout_marginTop="2dp"
                     android:background="#00000000"
                     android:hint="Card Number"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLines="1" />
 
                 <View
                     android:layout_width="match_parent"
@@ -132,18 +132,18 @@
                         android:layout_weight="1"
                         android:background="#00000000"
                         android:hint="CCV"
-                        android:maxLines="1"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:maxLines="1" />
 
                     <EditText
                         android:id="@+id/textPYExpiry"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:maxLines="1"
                         android:background="#00000000"
                         android:hint="Expiry (MMYY)"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:maxLines="1" />
 
                 </LinearLayout>
             </RelativeLayout>
@@ -171,12 +171,12 @@
                     android:id="@+id/textAddress"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/textfield_height"
-                    android:textSize="@dimen/_13sdp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="2dp"
-                    android:maxLines="1"
                     android:background="#00000000"
-                    android:hint="Address" />
+                    android:hint="Address"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_13sdp" />
 
                 <LinearLayout
                     android:id="@+id/lyPYAddrName"
@@ -191,20 +191,20 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:maxLines="1"
-                        android:textSize="@dimen/_13sdp"
                         android:background="#00000000"
-                        android:hint="City" />
+                        android:hint="City"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_13sdp" />
 
                     <EditText
                         android:id="@+id/textState"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:maxLines="1"
-                        android:textSize="@dimen/_13sdp"
                         android:background="#00000000"
-                        android:hint="State" />
+                        android:hint="State"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_13sdp" />
 
                 </LinearLayout>
 
@@ -235,9 +235,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="#00000000"
+                        android:hint="Postal Code"
                         android:maxLines="1"
-                        android:textSize="@dimen/_13sdp"
-                        android:hint="Postal Code" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <EditText
                         android:id="@+id/textCountry"
@@ -245,9 +245,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="#00000000"
+                        android:hint="Country"
                         android:maxLines="1"
-                        android:textSize="@dimen/_13sdp"
-                        android:hint="Country" />
+                        android:textSize="@dimen/_13sdp" />
 
                 </LinearLayout>
 
@@ -268,7 +268,7 @@
     </android.support.v4.widget.NestedScrollView>
 
     <Button
-        android:id="@+id/btnPayment"
+        android:id="@+id/btnProceedtopay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

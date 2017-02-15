@@ -12,7 +12,7 @@ public class PaymentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment);
+        setContentView(R.layout.activity_checkout);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarPayment);
@@ -20,6 +20,19 @@ public class PaymentActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+//        RecyclerView paymentRecyleview = (RecyclerView) findViewById(R.id.paymentRecycleView);
+//
+//        ArrayList<Menus> orderedItems = RestaurantManager.Instance().getAllOrders(this);
+//        MenuOrdersAdapter adapter = new MenuOrdersAdapter(orderedItems, this);
+//
+//        paymentRecyleview.setAdapter(adapter);
+//
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+//        paymentRecyleview.setLayoutManager(layoutManager);
+//        paymentRecyleview.setItemAnimator(new DefaultItemAnimator());
+
+
     }
 
     @Override
