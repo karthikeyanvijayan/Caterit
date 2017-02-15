@@ -44,7 +44,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         isGrid = grid;
     }
 
-    public MenuItemAdapter(Context mContext, Restaurant mRestaurant,boolean mType) {
+    public MenuItemAdapter(Context mContext, Restaurant mRestaurant, boolean mType) {
         this.context = mContext;
         this.selectedRestaurant = mRestaurant;
         this.menus = mRestaurant.getMenus();
@@ -66,7 +66,6 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
 
-
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Menus menu_item = this.menus.get(position);
@@ -76,7 +75,14 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             if (isGrid == true) {
                 ((GridViewHolder) holder).itemname.setText(menu_item.getName());
                 ((GridViewHolder) holder).item_price.setText(price);
-              //  ((GridViewHolder)holder).quantity.setTag(position,position);
+                CTQuantityView quantityView = ((GridViewHolder) holder).quantity;
+                if (quantityView != null) {
+                    TextView tvQuantity = (TextView) quantityView.findViewById(R.id.tvAddQuantity);
+                    if (tvQuantity != null) {
+                        tvQuantity.setText(menu_item.getQuantity().toString());
+                    }
+                }
+
                 // Glide unsplash background image
                 Glide.with(context)
                         .load(menu_item.getItemurl())
@@ -99,7 +105,6 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     /**
-     *
      * @param context
      * @param restaurant
      * @param isGridMode
@@ -113,7 +118,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
 
-    public class GridViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class GridViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView itemname, item_price;
         public ImageView imageMenu;
         CTQuantityView quantity;
@@ -125,26 +130,25 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             item_price = (TextView) view.findViewById(R.id.tvMenuPrice);
             quantity = (CTQuantityView) view.findViewById(R.id.quantityView);
 
-          //  updateQuantityView();
+            Button btnPlus = (Button) quantity.findViewById(R.id.btnQuantityAdd);
+            btnPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    updateQuantity(getAdapterPosition(), true);
+                }
+            });
+
+            Button btnMinus = (Button) quantity.findViewById(R.id.btnQuantityMinus);
+            btnMinus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    updateQuantity(getAdapterPosition(), false);
+                }
+            });
 
             view.setOnClickListener(this);
         }
 
-        void updateQuantityValue(String value,TextView textView) {
-            textView.setText(value);
-        }
-
-        public void updateQuantityView() {
-            final TextView tvQuantity = (TextView) quantity.findViewById(R.id.tvAddQuantity);
-            Button btnPlus = (Button)quantity.findViewById(R.id.btnQuantityAdd);
-            btnPlus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    currentQuantity += 1;
-                    updateQuantityValue(String.valueOf(currentQuantity),tvQuantity);
-                }
-            });
-        }
 
         @Override
         public void onClick(View view) {
@@ -153,15 +157,54 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
+
+    void updateQuantity(int pos, Boolean isAdd) {
+
+        Log.d("pos", String.valueOf(pos));
+
+        if (pos == RecyclerView.NO_POSITION) {
+            return;
+        }
+        Menus menu = (Menus) menus.get(pos);
+        if (menu != null) {
+            Log.d("Menu", menu.getQuantity().toString());
+
+            int currentQuantity = menu.getQuantity();
+
+
+            if (currentQuantity == 0 && !isAdd) {
+                return;
+            }
+
+
+            if (isAdd) {
+                currentQuantity++;
+            } else {
+                if (currentQuantity > 0) {
+                    currentQuantity--;
+                }
+            }
+            menu.setQuantity(currentQuantity);
+
+
+            Log.d("Menu", menu.getQuantity().toString());
+
+            this.notifyItemChanged(pos);
+        }
+
+    }
+
+    public class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView itemname, item_price;
         public ImageView imageMenu;
+        CTQuantityView quantity;
 
         public ListViewHolder(View view) {
             super(view);
             itemname = (TextView) view.findViewById(R.id.tvMenulvName);
             imageMenu = (ImageView) view.findViewById(R.id.image_lvmenu);
             item_price = (TextView) view.findViewById(R.id.tvMenulvPrice);
+
             view.setOnClickListener(this);
         }
 
@@ -177,7 +220,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             Menus menu_item = menus.get(position);
             Intent detail = new Intent(context, MenuDetailActivity.class);
             String menuJson = (new Gson()).toJson(menu_item);
-            detail.putExtra("menu",menuJson);
+            detail.putExtra("menu", menuJson);
             RestaurantManager.Instance().setCurrentSelectedMenu(menu_item);
             context.startActivity(detail);
         }

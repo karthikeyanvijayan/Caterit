@@ -20,7 +20,7 @@
         android:layout_below="@+id/image_menubg"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:layout_toStartOf="@+id/include2"
+        android:layout_toStartOf="@+id/quantityView"
         android:text="Cheeseburger"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/_16sdp" />
@@ -39,9 +39,9 @@
     <karthik.com.caterit.Models.CTQuantityView
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_alignBottom="@+id/tvMenuPrice"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/image_menubg"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="5dp"
         android:id="@+id/quantityView">
 
 
