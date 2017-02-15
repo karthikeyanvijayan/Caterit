@@ -69,9 +69,8 @@ public class Menus implements Serializable {
     public String toString() {
         return "Menus{" +
                 "name='" + name + '\'' +
-                ", menu_desc='" + menu_desc + '\'' +
-                ", itemurl='" + itemurl + '\'' +
                 ", price=" + price +
+                ", quantity=" + quantity +
                 '}';
     }
 }

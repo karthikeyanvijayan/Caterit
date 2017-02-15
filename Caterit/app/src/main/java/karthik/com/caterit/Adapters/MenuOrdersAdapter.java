@@ -43,6 +43,24 @@ public class MenuOrdersAdapter extends RecyclerView.Adapter<MenuOrdersAdapter.Or
             tvItemPrice = (TextView) view.findViewById(R.id.tvOrderPrice);
             tvItemQuantity = (TextView) view.findViewById(R.id.tvOrderQuantity);
             imageMenu = (ImageView) view.findViewById(R.id.image_order);
+            btnPlus = (Button) view.findViewById(R.id.btnOrderPlus);
+            btnPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition(); // gets item position
+                    updateQuantityForMenu(position,true);
+                }
+            });
+
+            btnMinus = (Button) view.findViewById(R.id.btnOrderMinus);
+            btnMinus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition(); // gets item position
+                    updateQuantityForMenu(position,false);
+                }
+            });
+
             view.setOnClickListener(this);
         }
 
@@ -67,7 +85,7 @@ public class MenuOrdersAdapter extends RecyclerView.Adapter<MenuOrdersAdapter.Or
             Log.d("Menu", menu.toString());
             holder.tvItemName.setText(menu.getName());
             holder.tvItemPrice.setText(menu.toPrice());
-            holder.tvItemQuantity.setText("x " +  menu.getQuantity().toString());
+            holder.tvItemQuantity.setText("x " + menu.getQuantity().toString());
             Glide.with(context)
                     .load(menu.getItemurl())
                     .into(((OrderViewHolder) holder).imageMenu);
@@ -78,5 +96,38 @@ public class MenuOrdersAdapter extends RecyclerView.Adapter<MenuOrdersAdapter.Or
     @Override
     public int getItemCount() {
         return orderList.size();
+    }
+
+
+    void updateQuantityForMenu(int pos,Boolean isAdd) {
+
+        Menus menu = (Menus) orderList.get(pos);
+        if (menu != null) {
+            int currentQuantity = menu.getQuantity();
+
+            if (currentQuantity == 1 && !isAdd) {
+
+                orderList.remove(pos);
+                this.notifyItemRemoved(pos);
+
+                return;
+            }
+
+
+            if (isAdd) {
+                currentQuantity++;
+            }
+            else {
+                if (currentQuantity > 0) {
+                    currentQuantity--;
+                }
+            }
+            menu.setQuantity(currentQuantity);
+
+
+            Log.d("Menu",menu.getQuantity().toString());
+
+            this.notifyItemChanged(pos);
+        }
     }
 }
