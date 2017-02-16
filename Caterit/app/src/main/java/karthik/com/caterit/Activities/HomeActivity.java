@@ -3,7 +3,10 @@ package karthik.com.caterit.Activities;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +19,7 @@ import android.view.MenuItem;
 
 import karthik.com.caterit.Adapters.MenuCategoryPagerAdapter;
 import karthik.com.caterit.Fragments.MenuListFragment;
+import karthik.com.caterit.Fragments.MenuOrdersFragment;
 import karthik.com.caterit.R;
 
 public class HomeActivity extends AppCompatActivity
@@ -155,12 +159,24 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.action_menu) {
             Log.d("menu choice", "toggle");
         }
+        else if (id == R.id.nav_orders) {
+            Fragment ordersFragment = new MenuOrdersFragment();
+            addFragments(ordersFragment);
+//            Intent myorders = new Intent(HomeActivity.this,MyOrdersActivity.class);
+//            startActivity(myorders);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
+    public void addFragments(Fragment fragment) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.replace(R.id.fragment_menu_list, fragment);
+        ft.commit();
+    }
 
     private void MenuDisplayModeChanged() {
         int mCurrentPagerPos = menuPager.getCurrentItem();

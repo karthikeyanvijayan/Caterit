@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +31,8 @@ public class RestaurantManager {
     private static RestaurantManager instance;
     Context context;
     ArrayList<Restaurant> restaurantsList;
-    ArrayList<Menus> orderList = null;
+    public ArrayList<Menus> orderList = new ArrayList<>();
+
     Menus currentSelectedMenu = null;
 
 
@@ -75,9 +77,9 @@ public class RestaurantManager {
         //  try {
         Gson gson = new Gson();
         List<Reviews> reviews = Arrays.asList(gson.fromJson(stringReviews, Reviews[].class));
-          ArrayList<Reviews> reviewsList = new ArrayList<>();
-        for(Reviews reviewitem:reviews) {
-            Log.d("review",reviewitem.toString());
+        ArrayList<Reviews> reviewsList = new ArrayList<>();
+        for (Reviews reviewitem : reviews) {
+            Log.d("review", reviewitem.toString());
             reviewsList.add(reviewitem);
         }
         return reviewsList;
@@ -157,6 +159,49 @@ public class RestaurantManager {
             return null;
         }
         return json;
+    }
+
+
+    public void AddMenu(Menus menu) {
+        if (orderList == null) {
+            orderList = new ArrayList<Menus>();
+        }
+
+        int index = this.orderList.indexOf(menu);
+        if (index != -1 && index < orderList.size()) {
+            Menus menuItem = (Menus) orderList.get(index);
+            menuItem.setQuantity(menu.getQuantity());
+        } else {
+            orderList.add(menu);
+        }
+    }
+
+    public void removeMenu(Menus menu) {
+        int index = this.orderList.indexOf(menu);
+        Log.d("index", String.valueOf(index));
+        if (index != -1 && index < orderList.size()) {
+            this.orderList.remove(index);
+        }
+    }
+
+    public String orderTotalAmount() {
+        double amount = 0.0;
+        amount = RestaurantManager.Instance().totalPrice();
+        DecimalFormat df = new DecimalFormat("0.00");
+        df.setMaximumFractionDigits(2);
+        String amountVal = "$" + df.format(amount);
+        return amountVal;
+    }
+
+    public double totalPrice() {
+        double total = 0.0;
+        if (!this.orderList.isEmpty()) {
+            for (Menus menu : orderList) {
+                double amount = menu.getPrice() * menu.getQuantity();
+                total += amount;
+            }
+        }
+        return total;
     }
 
 

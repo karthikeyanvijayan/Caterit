@@ -1,11 +1,16 @@
 package karthik.com.caterit.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import karthik.com.caterit.R;
+import karthik.com.caterit.RestaurantManager;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -20,6 +25,19 @@ public class PaymentActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        TextView tvTotal = (TextView) findViewById(R.id.tvChkAmount);
+        String amountVal = RestaurantManager.Instance().orderTotalAmount();
+        tvTotal.setText(amountVal);
+
+        Button btnpayment = (Button) findViewById(R.id.btnPaymentOrder);
+        btnpayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ordercomplete = new Intent(PaymentActivity.this,OrderCompleteActivity.class);
+                startActivity(ordercomplete);
+            }
+        });
 
 //        RecyclerView paymentRecyleview = (RecyclerView) findViewById(R.id.paymentRecycleView);
 //

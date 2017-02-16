@@ -51,7 +51,6 @@ public class MenuListFragment extends Fragment {
         menuListRecycleView.setAdapter(adapter);
         menuListRecycleView.setHasFixedSize(true);
 
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         menuListRecycleView.setLayoutManager(layoutManager);
         menuListRecycleView.setItemAnimator(new DefaultItemAnimator());

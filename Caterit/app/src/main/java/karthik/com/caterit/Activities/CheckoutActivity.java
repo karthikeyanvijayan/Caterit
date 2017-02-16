@@ -7,8 +7,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import karthik.com.caterit.R;
+import karthik.com.caterit.RestaurantManager;
 
 public class CheckoutActivity extends AppCompatActivity {
 
@@ -19,6 +21,11 @@ public class CheckoutActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarCartDetails);
         setSupportActionBar(toolbar);
+
+        TextView tvTotal = (TextView) findViewById(R.id.tvPyAmount);
+        String amountVal = RestaurantManager.Instance().orderTotalAmount();
+        tvTotal.setText(amountVal);
+
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

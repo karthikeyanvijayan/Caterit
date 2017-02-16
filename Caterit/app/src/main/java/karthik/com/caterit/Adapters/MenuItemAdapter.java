@@ -169,14 +169,15 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (menu != null) {
             Log.d("Menu", menu.getQuantity().toString());
 
+            // Get Quantity
             int currentQuantity = menu.getQuantity();
 
-
+            // Check if current quantity is 0
             if (currentQuantity == 0 && !isAdd) {
                 return;
             }
 
-
+            // if add/minus mode - we increase / decrease the quantity
             if (isAdd) {
                 currentQuantity++;
             } else {
@@ -184,11 +185,21 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     currentQuantity--;
                 }
             }
+
+            // update the current quantity
             menu.setQuantity(currentQuantity);
+
+            if (currentQuantity == 0) {
+                RestaurantManager.Instance().removeMenu(menu);
+            }
+            else {
+                RestaurantManager.Instance().AddMenu(menu);
+            }
 
 
             Log.d("Menu", menu.getQuantity().toString());
 
+            // Refresh Adapter
             this.notifyItemChanged(pos);
         }
 

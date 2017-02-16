@@ -17,6 +17,7 @@
 
     <string name="menu_desc"> Meslum can be an interesting and tasty mix handcrafted by a farmer or chef, or a generic "spring mix" composed of cut up lettuce and other greens mass-produced by a large agribusiness and distributed nationally. Quality varies wid</string>
 
+    <string name="order_complete_desc">We have received your order. You can follow your order status in your my orders tab.</string>
 
     <string-array name="onboard_titles">
         <item>Excellent Dining Experience</item>

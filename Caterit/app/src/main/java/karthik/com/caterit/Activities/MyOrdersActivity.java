@@ -7,10 +7,10 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -22,6 +22,7 @@ import karthik.com.caterit.RestaurantManager;
 public class MyOrdersActivity extends AppCompatActivity {
 
     ArrayList<Menus> orderedItemsList = null;
+    TextView tvTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,33 +35,36 @@ public class MyOrdersActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        orderedItemsList = new ArrayList<>();
-        orderedItemsList = RestaurantManager.Instance().getAllOrders(this);
+        tvTotal = (TextView) findViewById(R.id.tvSubtotal);
 
-        for (Menus menu: orderedItemsList) {
-            Log.d("menus",menu.toOrders());
-        }
+        orderedItemsList = new ArrayList<>();
+        orderedItemsList = RestaurantManager.Instance().orderList;
 
         RecyclerView mOrderList = (RecyclerView) findViewById(R.id.ordersRecycleview);
-
-        MenuOrdersAdapter adapter = new MenuOrdersAdapter(orderedItemsList,this);
-        mOrderList.setAdapter(adapter);
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        mOrderList.setLayoutManager(layoutManager);
-        mOrderList.setItemAnimator(new DefaultItemAnimator());
-
         Button btnorders = (Button) findViewById(R.id.btnPlaceOrder);
-        btnorders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent paymentDetails = new Intent(MyOrdersActivity.this, CheckoutActivity.class);
-                startActivity(paymentDetails);
-            }
-        });
 
+        if (!orderedItemsList.isEmpty()) {
+            MenuOrdersAdapter adapter = new MenuOrdersAdapter(orderedItemsList, this);
+            mOrderList.setAdapter(adapter);
+
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+            mOrderList.setLayoutManager(layoutManager);
+            mOrderList.setItemAnimator(new DefaultItemAnimator());
+
+            btnorders.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent paymentDetails = new Intent(MyOrdersActivity.this, CheckoutActivity.class);
+                    startActivity(paymentDetails);
+                }
+            });
+        }
     }
 
+    public void updateOverrallTotal() {
+        String amountVal = RestaurantManager.Instance().orderTotalAmount();
+        tvTotal.setText(amountVal);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -26,21 +26,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activities.AppOnboardActivity"
-            android:label="@string/title_activity_home"></activity>
+            android:label="@string/title_activity_home" />
         <activity
             android:name=".Activities.ForgotPasswordActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".Activities.MenuDetailActivity" />
-        <activity android:name=".Activities.MyOrdersActivity">
-
-        </activity>
-        <activity android:name=".Activities.PaymentActivity">
-
-        </activity>
-        <activity android:name=".Activities.CheckoutActivity"></activity>
+        <activity android:name=".Activities.MyOrdersActivity"></activity>
+        <activity android:name=".Activities.PaymentActivity"></activity>
+        <activity android:name=".Activities.CheckoutActivity" />
+        <activity android:name=".Activities.OrderCompleteActivity"></activity>
     </application>
 
 </manifest>

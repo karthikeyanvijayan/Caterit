@@ -22,6 +22,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorAccent"
         android:text="Submit Order"
+        android:id="@+id/btnPaymentOrder"
         android:textColor="@color/white" />
 
 

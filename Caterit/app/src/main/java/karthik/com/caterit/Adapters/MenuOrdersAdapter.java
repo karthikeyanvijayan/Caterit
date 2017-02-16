@@ -14,8 +14,10 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import karthik.com.caterit.Activities.MyOrdersActivity;
 import karthik.com.caterit.Models.Menus;
 import karthik.com.caterit.R;
+import karthik.com.caterit.RestaurantManager;
 
 /**
  * Created by user on 10/02/2017.
@@ -48,7 +50,7 @@ public class MenuOrdersAdapter extends RecyclerView.Adapter<MenuOrdersAdapter.Or
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition(); // gets item position
-                    updateQuantityForMenu(position,true);
+                    updateQuantityForMenu(position, true);
                 }
             });
 
@@ -57,7 +59,7 @@ public class MenuOrdersAdapter extends RecyclerView.Adapter<MenuOrdersAdapter.Or
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition(); // gets item position
-                    updateQuantityForMenu(position,false);
+                    updateQuantityForMenu(position, false);
                 }
             });
 
@@ -89,6 +91,10 @@ public class MenuOrdersAdapter extends RecyclerView.Adapter<MenuOrdersAdapter.Or
             Glide.with(context)
                     .load(menu.getItemurl())
                     .into(((OrderViewHolder) holder).imageMenu);
+            MyOrdersActivity orderActivity = (MyOrdersActivity) context;
+            if (orderActivity != null) {
+                orderActivity.updateOverrallTotal();
+            }
         }
 
     }
@@ -99,33 +105,34 @@ public class MenuOrdersAdapter extends RecyclerView.Adapter<MenuOrdersAdapter.Or
     }
 
 
-    void updateQuantityForMenu(int pos,Boolean isAdd) {
+    void updateQuantityForMenu(int pos, Boolean isAdd) {
+        if (pos < 0) return;
 
         Menus menu = (Menus) orderList.get(pos);
         if (menu != null) {
             int currentQuantity = menu.getQuantity();
 
             if (currentQuantity == 1 && !isAdd) {
-
+                // RestaurantManager.Instance().removeMenu(menu);
                 orderList.remove(pos);
                 this.notifyItemRemoved(pos);
-
                 return;
             }
 
+            String itemsize = String.valueOf(RestaurantManager.Instance().orderList.size());
+            Log.d("order size", itemsize);
 
             if (isAdd) {
                 currentQuantity++;
-            }
-            else {
+            } else {
                 if (currentQuantity > 0) {
                     currentQuantity--;
                 }
             }
+
             menu.setQuantity(currentQuantity);
-
-
-            Log.d("Menu",menu.getQuantity().toString());
+            RestaurantManager.Instance().AddMenu(menu);
+            Log.d("Menu", menu.getQuantity().toString());
 
             this.notifyItemChanged(pos);
         }
